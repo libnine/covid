@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Snoopy';
+  src: url("./assets/fonts/snoopy_reg-webfont.woff") format("woff");
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100%;
+}

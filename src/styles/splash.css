@@ -1,0 +1,70 @@
+h3 {
+  text-align: center;
+  font-family: Snoopy;
+  font-size: 48px;
+  font-weight: 100;
+  margin: 0 auto;
+  color: black;
+  padding: 1%;
+  padding-top: 5%;
+}
+
+.splash {
+  animation: fadein 2s;
+  height: 100%;
+  -moz-animation: fadein 2s;
+  -webkit-animation: fadein 2s;
+  -o-animation: fadein 2s;
+}
+
+.imgLink {
+  cursor: default;
+  text-decoration: none;
+}
+
+.snoopy {
+  display: block;
+  margin: 0 auto;
+  margin-top: 10%;
+  width: 70%;
+}
+
+.zs {
+  position: absolute;
+}
+
+@keyframes fadein {
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+
+@-moz-keyframes fadein { /* Firefox */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+
+@-webkit-keyframes fadein { /* Safari and Chrome */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+
+@-o-keyframes fadein { /* Opera */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity: 1;
+  }
+}
