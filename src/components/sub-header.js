@@ -13,7 +13,6 @@ const Subheader = () => {
           <Link to="/boro"><span>Boroughs</span><span>By Borough</span></Link>
           <Link to="/age"><span>Age</span><span>By Age Group</span></Link>
           <Link to="/zip"><span>Zip</span><span>By Zip Code</span></Link>
-          {/* <Link to="/sex"><span>Sex</span><span>By Sex</span></Link> */}
         </nav>
       <span className="brackets">]</span>
     </section>
