@@ -6,7 +6,7 @@ import { localPoint } from '@vx/event';
 import { LinearGradient } from '@vx/gradient'
 import { Group } from '@vx/group'
 import { scaleTime, scaleLinear } from '@vx/scale'
-import { Bar, Line, LinePath } from '@vx/shape'
+import { LinePath } from '@vx/shape'
 import { useTooltip } from '@vx/tooltip'
 import '../styles/comp.css'
 
@@ -62,8 +62,8 @@ const Compa = () => {
     xMax = width - 25,
     yMax = height - 100,
     date = d => new Date(d.date),
-    yNew = d => d.new_covid_case_count,
-    yHosp = d => d.hospitalized_case_count,
+    yNew = d => d.case_count,
+    yHosp = d => d.hospitalized_count,
     yDc = d => d.death_count,
     x = d => xScale(date(d)),
     y1 = d => yScale(yNew(d)),
