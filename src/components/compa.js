@@ -38,7 +38,9 @@ const Compa = () => {
           obj = {},
           line = lines[i].replace('\n', ''),
           curLine = line.split(',')
-    
+
+        if (curLine.length < 2) continue
+
         for (let j = 0; j < headers.length; j++) {
           obj[headers[j].toLowerCase()] = curLine[j] || 0
         }
@@ -127,7 +129,7 @@ const Compa = () => {
                 tickLabelProps={() => ({
                   fill: '#000000',
                   textAnchor: 'middle',
-                  fontSize: 16,
+                  fontSize: 12,
                   fontFamily: 'Snoopy'
                 })}
                 tickTextFill={'#ffffff'}

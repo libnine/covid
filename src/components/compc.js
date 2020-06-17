@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { localPoint } from '@vx/event'
 import { LinearGradient } from '@vx/gradient'
 import { Group } from '@vx/group'
 import { Pie } from '@vx/shape'
@@ -26,6 +25,8 @@ const Compc = () => {
         dump = [],
         lines = res.split('\r'),
         headers = lines[0].split(',')
+
+      console.log(lines)
     
       for (let i = 1; i < lines.length; i++) {
         let 
@@ -33,10 +34,14 @@ const Compc = () => {
           line = lines[i].replace('\n', ''),
           curLine = line.split(',')
 
-        if (curLine[0].match(/Citywide\s\S+/gi)) continue
+        if (curLine[0].match(/Citywide\s\S+/gi) || curLine.length < 2) continue
     
         for (var j = 0; j < headers.length; j++) {
-          obj[headers[j].toLowerCase()] = curLine[j].replace(/[\sA-Za-z]/gi, '')
+          try {
+            obj[headers[j].toLowerCase()] = curLine[j].replace(/[\sA-Za-z]/gi, '')
+          } catch {
+            continue
+          }
         }
     
         dump.push(obj)
@@ -120,8 +125,8 @@ const Compc = () => {
           <Tooltip left={tooltipLeft * .75 + width} top={tooltipTop * 1.25 + height}>
             <section className="ttStyle">
               <strong>Age Group</strong> {tooltipData.age_group}<br />
-              <strong>Case Rate</strong> {(tooltipData.covid_case_rate / 1000).toPrecision(3).toLocaleString()}%<br />
-              <strong>Hospitalization Rate</strong> {(tooltipData.hospitalized_case_rate / 1000).toPrecision(3).toLocaleString()}%<br />
+              <strong>Case Rate</strong> {(tooltipData.case_rate / 1000).toPrecision(3).toLocaleString()}%<br />
+              <strong>Hospitalization Rate</strong> {(tooltipData.hospitalized_rate / 1000).toPrecision(3).toLocaleString()}%<br />
               <strong>Death Rate</strong> {(tooltipData.death_rate / 1000).toPrecision(3).toLocaleString()}%<br />
             </section>
           </Tooltip>

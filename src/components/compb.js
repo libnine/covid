@@ -14,18 +14,20 @@ const Compb = () => {
       let a = await axios.get('https://raw.githubusercontent.com/nychealth/coronavirus-data/master/boro.csv')
       let res = await a.data
 
-      let 
+      let
         dump = [],
         lines = res.replace('The ', '').split('\r'),
         headers = lines[0].split(',')
-    
+
+      console.log(lines)
+
       for (let i = 1; i < lines.length; i++) {
         let 
           obj = {},
           line = lines[i].replace('\n', ''),
           curLine = line.split(',')
 
-        if (curLine[0] === 'Citywide') continue
+        if (curLine[0] === 'Citywide' || curLine.length < 2) continue
     
         for (var j = 0; j < headers.length; j++) {
           obj[headers[j].toLowerCase()] = curLine[j]
